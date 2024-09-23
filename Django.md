@@ -348,3 +348,34 @@ Dass Terminal sagt dir wenn es eine migrations erstellt wurde.
             path("__debug__", include(debug_toolbar.urls)),
          ] #path für die toolbar erstellen
       ```
+
+## <p style="text-align: center">Ordner anlegen und in die Templates laden</p>
+
+1. Den Ordner anlegen `mkdir static`
+
+   - unterordner anlegen für zb. CSS oder Bilder
+
+2. Den Ordner in der settings.py registrieren:
+
+   ```python
+      STATICFILES_DIRS = [
+         BASE_DIR / 'static'
+      ]
+   ```
+
+   - damit Django weiß dass der Ordner existiert
+
+3. Den Ordner in ein Template laden:
+
+   - dazu ganz oben im Template
+     `{% load static %}`
+     eingeben
+
+4. - für eine CSS Datei folgendes eingeben:
+     ```html
+        <link rel="stylesheet" href="{% static 'css/nameCssFile.css' %}>"
+     ```
+   - für ein Bild:
+     ```html
+     <img src="{% static 'images/bild.jpg' %}" alt="" />
+     ```
